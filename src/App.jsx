@@ -1,9 +1,28 @@
+import { useEffect, useState } from "react";
 import "./App.css";
+import GameBoard from "./components/GameBoard";
+import getPokemonList from "./utils/pokemon";
 
-// fetch 12 pokemon, then render 12 cards
-// perhaps more for higher difficulties?
 function App() {
-  return <></>;
+  const [numCards, setNumCards] = useState(12);
+  const [pokemonList, setPokemonList] = useState([]);
+
+  useEffect(() => {
+    getPokemonList(numCards, setPokemonList);
+  }, [numCards]);
+
+  const handleClick = (e) => {
+    console.log(e);
+  };
+
+  return (
+    <div className="game-wrapper">
+      <GameBoard
+        characters={pokemonList}
+        onClickFunction={handleClick}
+      ></GameBoard>
+    </div>
+  );
 }
 
 export default App;

@@ -1,17 +1,18 @@
 import PropTypes from "prop-types";
 
-function Card({ imgSource, description }) {
+function Card({ imageUrl, name, onClick }) {
   return (
-    <div className="card">
-      <img src={imgSource} alt="" />
-      <p>{description}</p>
+    <div className="card" onClick={onClick}>
+      <img src={imageUrl} alt="" />
+      <p>{name}</p>
     </div>
   );
 }
 
 Card.propTypes = {
-  description: PropTypes.string.isRequired,
-  imgSource: PropTypes.string.isRequired,
+  imageUrl: PropTypes.string,
+  name: PropTypes.string,
+  onClick: PropTypes.func.isRequired,
 };
 
 export default Card;
