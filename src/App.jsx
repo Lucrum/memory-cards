@@ -13,7 +13,16 @@ function App() {
 
   useEffect(() => {
     getRandomPokemonList(numCards, setPokemonList);
+    resetGame();
   }, [numCards]);
+
+  const hardModeToggle = (bool) => {
+    if (bool) {
+      setNumCards(16);
+    } else {
+      setNumCards(12);
+    }
+  };
 
   const scoreSelection = (value) => {
     // returns true if the selection is valid
@@ -45,7 +54,11 @@ function App() {
 
   return (
     <div className="game-wrapper">
-      <Header score={score} total={numCards}></Header>
+      <Header
+        score={score}
+        total={numCards}
+        toggleHardMode={hardModeToggle}
+      ></Header>
       <GameBoard
         characters={pokemonList}
         onClickFunction={handleClick}
