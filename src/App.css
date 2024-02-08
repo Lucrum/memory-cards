@@ -15,3 +15,7 @@
 .card > p {
   text-align: center;
 }
+
+.game-wrapper {
+  width: clamp(360px, 70%, 1000px);
+}
