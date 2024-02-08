@@ -6,10 +6,20 @@
 }
 
 .card {
-  background-color: whitesmoke;
-  display: grid;
+  display: flex;
+  flex-direction: column;
   align-items: center;
   justify-content: center;
+  padding: 20px;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: 0.5s;
+  background: linear-gradient(whitesmoke, rgb(0 0 0/10%)) top/100% 800%;
+  background-color: whitesmoke;
+}
+
+.card:hover {
+  background-position: bottom;
 }
 
 .card > p {
@@ -18,4 +28,11 @@
 
 .game-wrapper {
   width: clamp(360px, 70%, 1000px);
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 20px 0px;
 }

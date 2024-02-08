@@ -3,7 +3,7 @@ import PropTypes from "prop-types";
 function Header({ score, total, toggleHardMode }) {
   return (
     <div className="header">
-      <h1>Memory Game</h1>
+      <h1>Catch &apos;em Once!</h1>
       <div className="flex-column">
         <h2>
           {score}/{total}

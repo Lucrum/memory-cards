@@ -5,7 +5,7 @@ function Card({ imageUrl, name, onClick }) {
   return (
     <div className="card" onClick={onClick} id={name}>
       <img src={imageUrl} alt="" />
-      <p>{capitalize(name)}</p>
+      <span>{capitalize(name)}</span>
     </div>
   );
 }
