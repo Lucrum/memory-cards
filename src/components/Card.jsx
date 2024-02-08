@@ -1,10 +1,11 @@
 import PropTypes from "prop-types";
+import capitalize from "../utils/capitalize";
 
 function Card({ imageUrl, name, onClick }) {
   return (
     <div className="card" onClick={onClick}>
       <img src={imageUrl} alt="" />
-      <p>{name}</p>
+      <p>{capitalize(name)}</p>
     </div>
   );
 }

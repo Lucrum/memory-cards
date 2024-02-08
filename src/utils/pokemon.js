@@ -1,6 +1,6 @@
 // fetch 12 pokemon, then render 12 cards
 // perhaps more for higher difficulties?
-async function getPokemonList(amount, setPokemonList) {
+async function getRandomPokemonList(amount, setPokemonList) {
   const arr = [];
   const list = [];
   while (arr.length < amount) {
@@ -11,11 +11,15 @@ async function getPokemonList(amount, setPokemonList) {
   }
 
   for (const id of arr) {
-    const response = await fetchPokemon(id);
-    list.push({
-      name: response.name,
-      imageUrl: response.sprites.front_default,
-    });
+    try {
+      const response = await fetchPokemon(id);
+      list.push({
+        name: response.name,
+        imageUrl: response.sprites.front_default,
+      });
+    } catch (e) {
+      console.error(e);
+    }
   }
 
   setPokemonList(list);
@@ -27,4 +31,4 @@ async function fetchPokemon(id) {
   return response.json();
 }
 
-export default getPokemonList;
+export default getRandomPokemonList;
