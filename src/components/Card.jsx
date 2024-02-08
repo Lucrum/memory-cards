@@ -3,7 +3,7 @@ import capitalize from "../utils/capitalize";
 
 function Card({ imageUrl, name, onClick }) {
   return (
-    <div className="card" onClick={onClick}>
+    <div className="card" onClick={onClick} id={name}>
       <img src={imageUrl} alt="" />
       <p>{capitalize(name)}</p>
     </div>

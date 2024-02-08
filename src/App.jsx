@@ -9,12 +9,37 @@ function App() {
   const [numCards, setNumCards] = useState(12);
   const [pokemonList, setPokemonList] = useState([]);
   const [score, setScore] = useState(0);
+  const [selectedPokemon, setSelectedPokemon] = useState([]);
 
   useEffect(() => {
     getRandomPokemonList(numCards, setPokemonList);
   }, [numCards]);
 
-  const handleClick = () => {
+  const scoreSelection = (value) => {
+    // returns true if the selection is valid
+    if (selectedPokemon.includes(value)) {
+      setScore(0);
+      return false;
+    } else {
+      setScore(score + 1);
+      return true;
+    }
+  };
+
+  const resetGame = () => {
+    setScore(0);
+    setSelectedPokemon([]);
+  };
+
+  const handleClick = (e) => {
+    const selection = e.currentTarget.id;
+    if (scoreSelection(selection)) {
+      // valid choice
+      setSelectedPokemon((selectedPokemon) => [...selectedPokemon, selection]);
+    } else {
+      resetGame();
+    }
+
     setPokemonList([...shuffle(pokemonList)]);
   };
 
