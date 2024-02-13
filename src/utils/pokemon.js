@@ -4,7 +4,7 @@ async function getRandomPokemonList(amount, setPokemonList) {
   const arr = [];
   const list = [];
   while (arr.length < amount) {
-    const x = Math.floor(Math.random() * 1025) + 1; // 1300 is roughly the current size of the pokeapi
+    const x = Math.floor(Math.random() * 1025) + 1; // 1025 is is how many (distinct) pokemon are in the pokeapi
     if (arr.indexOf(x) === -1) {
       arr.push(x);
     }
